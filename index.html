@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Chrono Hunter: Praaksara Open World</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" type="module" defer></script>
+</head>
+<body>
+  <div id="loading-screen" class="overlay active">
+    <div class="loading-card">
+      <h1 id="loading-title">CHRONO HUNTER</h1>
+      <p id="loading-text">Menyambut penjelajah waktu...</p>
+      <div class="loading-bar"><div id="loading-progress"></div></div>
+      <div class="whirlpool"></div>
+    </div>
+  </div>
+
+  <div id="main-menu" class="overlay hidden">
+    <div class="menu-card">
+      <h1>CHRONO HUNTER</h1>
+      <p class="menu-subtitle">Praaksara Open World Adventure</p>
+      <button id="start-btn">Mulai</button>
+      <button id="library-btn">Perpustakaan</button>
+      <button id="settings-btn">Pengaturan</button>
+      <div class="menu-note">Tekan tombol untuk mulai petualangan. Dialog dan teks muncul satu huruf demi satu huruf.</div>
+    </div>
+  </div>
+
+  <div id="library-menu" class="overlay hidden">
+    <div class="panel">
+      <h2>Perpustakaan Praaksara</h2>
+      <div class="library-text">
+        <p>• Mengapa manusia berpindah dari nomaden ke menetap?</p>
+        <p>• Apa dampak bertani terhadap kehidupan sosial?</p>
+        <p>• Kenapa logam mengubah kehidupan manusia?</p>
+        <p>• Bagaimana hubungan manusia dengan alam berubah saat hidup menetap?</p>
+        <p>• Apa penyebab munculnya desa dan kerja sama?</p>
+      </div>
+      <button class="close-btn">Kembali</button>
+    </div>
+  </div>
+
+  <div id="settings-menu" class="overlay hidden">
+    <div class="panel">
+      <h2>Pengaturan</h2>
+      <p>Kontrol:</p>
+      <ul>
+        <li>W/A/S/D = Gerak</li>
+        <li>Shift = Sprint</li>
+        <li>E = Interaksi</li>
+        <li>G = Inventory</li>
+        <li>F = Crafting</li>
+      </ul>
+      <p>Mobile: sentuh area interaksi dan gunakan tombol HUD.</p>
+      <button class="close-btn">Kembali</button>
+    </div>
+  </div>
+
+  <div id="tutorial-menu" class="overlay hidden">
+    <div class="panel">
+      <h2>Tutorial</h2>
+      <p id="tutorial-text"></p>
+      <button id="tutorial-next">Mulai Petualangan</button>
+    </div>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <canvas id="gameCanvas" width="1000" height="600"></canvas>
+    <div id="hud">
+      <div class="status-row">
+        <div class="bar-group">
+          <span>HP</span>
+          <div class="status-bar"><div id="health-fill" class="fill health"></div></div>
+        </div>
+        <div class="bar-group">
+          <span>Stamina</span>
+          <div class="status-bar"><div id="stamina-fill" class="fill stamina"></div></div>
+        </div>
+        <div class="bar-group">
+          <span>Hunger</span>
+          <div class="status-bar"><div id="hunger-fill" class="fill hunger"></div></div>
+        </div>
+      </div>
+      <div id="task-panel">
+        <h3>Tugas</h3>
+        <div id="task-list"></div>
+      </div>
+      <div id="quick-info">
+        <span>Inventory: <span id="inventory-count">0</span></span>
+        <span>Soal: <span id="question-count">0/10</span></span>
+      </div>
+    </div>
+
+    <div id="dialog-overlay" class="overlay hidden">
+      <div class="dialog-card">
+        <p id="dialog-text"></p>
+        <button id="dialog-continue">Lanjut</button>
+      </div>
+    </div>
+
+    <div id="quiz-overlay" class="overlay hidden">
+      <div class="quiz-card">
+        <h2>Quiz Praaksara</h2>
+        <p id="quiz-question"></p>
+        <div id="quiz-options"></div>
+      </div>
+    </div>
+
+    <div id="fact-overlay" class="overlay hidden">
+      <div class="fact-card">
+        <h3>Fakta Menarik</h3>
+        <p id="fact-text"></p>
+      </div>
+    </div>
+
+    <div id="inventory-overlay" class="overlay hidden">
+      <div class="panel inventory-panel">
+        <h2>Inventory</h2>
+        <div class="inventory-grid">
+          <div class="item">Kayu: <span id="wood-count">0</span></div>
+          <div class="item">Batu: <span id="stone-count">0</span></div>
+          <div class="item">Logam: <span id="metal-count">0</span></div>
+          <div class="item">Makanan: <span id="food-count">0</span></div>
+          <div class="item">Pedang: <span id="sword-status">Tidak</span></div>
+        </div>
+        <button class="close-btn">Tutup</button>
+      </div>
+    </div>
+
+    <div id="crafting-overlay" class="overlay hidden">
+      <div class="panel crafting-panel">
+        <h2>Crafting</h2>
+        <div class="recipe">
+          <h3>Pedang Primitif</h3>
+          <p>Kayu 4 + Batu 2 => Pedang</p>
+          <button id="craft-sword">Craft Pedang</button>
+        </div>
+        <div class="recipe">
+          <h3>Perkakas Batu</h3>
+          <p>Kayu 2 + Batu 3 => Kapak</p>
+          <button id="craft-tool">Craft Kapak</button>
+        </div>
+        <button class="close-btn">Tutup</button>
+      </div>
+    </div>
+
+    <div id="ending-overlay" class="overlay hidden">
+      <div class="ending-card">
+        <h1 id="ending-title"></h1>
+        <p id="ending-dialogue"></p>
+        <button id="retry-btn">Ulangi</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
