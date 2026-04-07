@@ -1,0 +1,6 @@
+[
+  {"id":1,"era":"Paleolitikum","task":"Berburu dan analisis lingkungan"},
+  {"id":2,"era":"Mesolitikum","task":"Pilih berpindah atau menetap sementara"},
+  {"id":3,"era":"Neolitikum","task":"Pilih bertani atau berburu"},
+  {"id":4,"era":"Perundagian","task":"Gunakan logam untuk efisiensi"}
+]

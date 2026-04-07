@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+#game-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.taskbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 5px;
+  color: #0f0;
+}
+
+.stamina-bar, .hunger-bar {
+  height: 10px;
+  background: #333;
+  margin: 5px 0;
+}
+
+.stamina-fill {
+  width: 100%;
+  height: 100%;
+  background: #0ff;
+}
+
+.hunger-fill {
+  width: 100%;
+  height: 100%;
+  background: #f90;
+}

@@ -1,0 +1,43 @@
+<div id="ending">
+  <h1 id="ending-title"></h1>
+  <p id="ending-dialogue"></p>
+</div>
+
+<script>
+function showEnding(type) {
+  let title = "";
+  let dialogue = "";
+  switch(type) {
+    case "TRUE":
+      title = "TRUE ENDING";
+      dialogue = "Kamu memahami perjalanan manusia… dari bertahan hidup hingga berkembang.";
+      break;
+    case "GOOD":
+      title = "GOOD ENDING";
+      dialogue = "Pemahamanmu cukup, tapi masih ada yang terlewat.";
+      break;
+    case "BAD":
+      title = "BAD ENDING";
+      dialogue = "Kamu mundur ke zaman arkeozoikum dan berakhir tragis.";
+      break;
+    case "SECRET":
+      title = "SECRET ENDING";
+      dialogue = "Kamu membangun kerajaan dan menjadi raja bahagia.";
+      break;
+  }
+  document.getElementById("ending-title").innerText = title;
+  typeWriter(dialogue);
+}
+
+function typeWriter(text) {
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("ending-dialogue").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 100);
+    }
+  }
+  typing();
+}
+</script>
